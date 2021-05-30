@@ -1,0 +1,22 @@
+{
+  "name": "allstarautovote",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ant2357/AllStarAutoVote.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ant2357/AllStarAutoVote/issues"
+  },
+  "homepage": "https://github.com/Ant2357/AllStarAutoVote#readme",
+  "dependencies": {
+    "puppeteer": "^9.1.1"
+  }
+}
