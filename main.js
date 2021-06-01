@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer');
+const fs = require("fs");
 
 (async () => {
   const browser = await puppeteer.launch({
@@ -6,11 +7,15 @@ const puppeteer = require('puppeteer');
     slowMo: 100
   })
 
-  const page = await browser.newPage();
+  // NPBサイトのCookie
+  const content = fs.readFileSync("cookie.json");
+  const cookie = JSON.parse(content);
 
-  await page.goto('https://npb.jp/allstar/ballot/Login/index');
-  await page.type("#MemberEmail", "xxxx@gmail.com");
-  await page.type("#MemberPassword", "xxxx");
-  await page.click('#MemberIndexForm > section.pageNav > ul > li > input');
+  const page = await browser.newPage();
+  await page.setCookie(...cookie);
+
+  await page.goto('https://npb.jp/allstar/ballot/members');
+  await page.click('#btnSubmit');
+  await page.click('#btnSubmit');
 
 })();
