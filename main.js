@@ -15,7 +15,7 @@ const fs = require("fs");
   await page.setCookie(...cookie);
 
   await page.goto('https://npb.jp/allstar/ballot/members');
-  await page.click('#btnSubmit');
-  await page.click('#btnSubmit');
+  await Promise.all([page.waitForNavigation(), page.click('#btnSubmit')]);
+  await Promise.all([page.waitForNavigation(), page.click('#btnSubmit')]);
 
 })();
